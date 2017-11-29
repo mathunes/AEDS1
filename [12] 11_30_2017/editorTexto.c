@@ -5,8 +5,10 @@
 
 #define BUFFER_TAM 5
 
+void allocString (char **string, int len); 
+
 int main(int argc, char *argv[]) {
-	int countBuffer = 0, countTotal = 0, flag = 0;
+	int len, countBuffer = 0, countTotal = 0, flag = 0;
 	char ch;
 	char *texto, *buffer, *textoAux;
 
@@ -57,7 +59,7 @@ int main(int argc, char *argv[]) {
 
 	} while (ch != '#');
 
-	//IF THERE IS STRING IN THE BUFFER
+	//IF STILL THERE IS STRING IN THE BUFFER
 	if (countBuffer > 0) {
 		allocString(&textoAux, countTotal);
 		strcpy(textoAux, texto);
@@ -77,4 +79,15 @@ int main(int argc, char *argv[]) {
 	free(texto);
 
 	return 0;
+}
+
+void allocString (char **string, int len) {
+	int i;
+
+	*string = (char *)malloc(len * sizeof(char));
+	
+	for (i = 0; i < len; i++) {
+		(*string)[i] = '\0';
+	}
+
 }
