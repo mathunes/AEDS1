@@ -7,14 +7,14 @@ PATH_ALLEGRO=$(FOLDER)$(FOLDER_NAME)
 LIB_ALLEGRO=\lib\liballegro-$(ALLEGRO_VERSION)-monolith-mt.a
 INCLUDE_ALLEGRO=\include
 
-all: teste.exe
+all: agario.exe
 
-teste.exe: teste.o
-	gcc -o teste.exe teste.o $(PATH_ALLEGRO)$(LIB_ALLEGRO)
+agario.exe: agario.o
+	gcc -o agario.exe agario.o $(PATH_ALLEGRO)$(LIB_ALLEGRO)
 
-teste.o: teste.c
-	gcc -I $(PATH_ALLEGRO)$(INCLUDE_ALLEGRO) -c teste.c		
+agario.o: agario.c
+	gcc -I $(PATH_ALLEGRO)$(INCLUDE_ALLEGRO) -c agario.c		
 	 
 clean:
-	del teste.o
-	del teste.exe
+	del agario.o
+	del agario.exe
